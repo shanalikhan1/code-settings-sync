@@ -1,0 +1,35 @@
+{
+
+    // @sync os=windows host=h1
+    "setting.test": 1,
+
+    // @sync os=windows host=h2
+    "setting.test": 2,
+
+    // @sync os=  linux host=  trim env= TEST_ENV 
+    //"setting.test": 3,
+
+    // @sync os=linux
+    "not_commented": 4,
+
+    // @sync host=_mac1_ os=mac
+    "setting.test": 5,
+
+    // @sync host=mac2 os=mac env=TEST_ENV
+    //"mac2": 3,
+
+    // @sync host=mac2
+    //"server": "http://example.com",
+
+    // @sync os=mac
+    "mactest": "",
+
+    // @sync host=test1
+    "onlyHost": "",    
+
+    // @sync-ignore
+    "test4": 12,
+
+    // @sync ignore
+    "test5": 12
+}

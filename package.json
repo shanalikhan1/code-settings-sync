@@ -74,10 +74,6 @@
   "contributes": {
     "commands": [
       {
-        "command": "code-settings-sync.helloWorld",
-        "title": "Hello World"
-      },
-      {
         "command": "extension.HowSettings",
         "title": "%cmd.howSetting.title%"
       },
@@ -166,17 +162,45 @@
     "test": "vscode-test"
   },
   "devDependencies": {
-    "@types/vscode": "^1.95.0",
+    "@types/chai": "^5.0.1",
+    "@types/express": "^5.0.0",
+    "@types/fs-extra": "^11.0.4",
+    "@types/lodash": "^4.17.13",
     "@types/mocha": "^10.0.9",
-    "@types/node": "20.x",
+    "@types/node": "^20.10.0",
+    "@types/node-fetch": "^2.6.12",
+    "@types/recursive-readdir": "^2.2.4",
+    "@types/vscode": "^1.95.0",
     "@typescript-eslint/eslint-plugin": "^8.10.0",
     "@typescript-eslint/parser": "^8.7.0",
+    "@vscode/test-cli": "^0.0.10",
+    "@vscode/test-electron": "^2.4.1",
+    "chai": "^5.1.2",
+    "clean-webpack-plugin": "^4.0.0",
     "eslint": "^9.13.0",
-    "typescript": "^5.6.3",
+    "mocha": "^11.0.1",
+    "prettier": "^2.8.8",
     "ts-loader": "^9.5.1",
+    "tslint": "^5.20.1",
+    "tslint-plugin-prettier": "^2.3.0",
+    "typescript": "^5.6.3",
+    "vscode": "^1.1.37",
     "webpack": "^5.95.0",
     "webpack-cli": "^5.1.4",
-    "@vscode/test-cli": "^0.0.10",
-    "@vscode/test-electron": "^2.4.1"
+    "webpack-merge": "^6.0.1"
+  },
+  "dependencies": {
+    "@octokit/rest": "^21.0.2",
+    "adm-zip": "^0.5.16",
+    "const": "^1.0.0",
+    "express": "^4.21.2",
+    "fs-extra": "^11.2.0",
+    "https-proxy-agent": "^7.0.5",
+    "lockfile": "^1.0.4",
+    "lodash": "^4.17.21",
+    "node-fetch": "^3.3.2",
+    "recursive-readdir": "^2.2.3",
+    "temp": "^0.9.4",
+    "vscode-chokidar": "^2.1.7"
   }
 }
