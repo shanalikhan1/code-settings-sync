@@ -74,6 +74,10 @@
   "contributes": {
     "commands": [
       {
+        "command": "code-settings-sync.helloWorld",
+        "title": "Hello World"
+      },
+      {
         "command": "extension.HowSettings",
         "title": "%cmd.howSetting.title%"
       },
