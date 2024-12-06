@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="default-src vscode-resource:; script-src 'unsafe-inline' vscode-resource:; style-src 'unsafe-inline' vscode-resource:; img-src data: vscode-resource:;"
+    />
+    <link
+      rel="stylesheet"
+      href="@PWD/ui/shared/vendor/bootstrap/css/bootstrap.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="@PWD/ui/shared/vendor/fontawesome/css/fontawesome.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="@PWD/ui/shared/vendor/fontawesome/css/solid.min.css"
+    />
+    <script>
+      const pwd = "@PWD";
+    </script>
+    <link rel="stylesheet" href="@PWD/ui/shared/styles.css" />
+  </head>
+  <body class="container d-flex h-100 mx-auto text-center">
+    <page-header></page-header>
+    <div class="row content-row text-left">
+      <div class="col mt-2 scrollable">
+        <h3 class="mx-auto mt-2 text-white-50a text-center">
+          Environment Settings
+        </h3>
+        <form id="environmentSettings"></form>
+        <p id="saveStatus" class="text-white-50a" style="font-size: 3rem"></p>
+      </div>
+      <div class="col mt-2 scrollable">
+        <h3 class="mx-auto mt-2 text-white-50a text-center">
+          Global Settings
+        </h3>
+        <form id="globalSettings"></form>
+      </div>
+    </div>
+    <script defer src="@PWD/ui/shared/vendor/lodash/lodash.min.js"></script>
+    <script
+      defer
+      src="@PWD/ui/shared/vendor/jquery/jquery-3.3.1.slim.min.js"
+    ></script>
+    <script defer src="@PWD/ui/shared/vendor/popper.js/popper.min.js"></script>
+    <script
+      defer
+      src="@PWD/ui/shared/vendor/bootstrap/js/bootstrap.min.js"
+    ></script>
+    <script defer src="@PWD/ui/shared/page-header.js"></script>
+    <script defer src="@PWD/ui/shared/fonts.js"></script>
+    <font-injector></font-injector>
+    <script defer>
+      const globalData = JSON.parse(`@GLOBAL_DATA`);
+      const envData = JSON.parse(`@ENV_DATA`);
+      const globalMap = JSON.parse(`@GLOBAL_MAP`);
+      const envMap = JSON.parse(`@ENV_MAP`);
+    </script>
+    <script defer src="@PWD/ui/settings/settings.js"></script>
+  </body>
+</html>

@@ -1,0 +1,33 @@
+language: node_js
+node_js:
+  - node
+before_install:
+  - npm install npm@latest -g
+  - npm install node-pre-gyp
+  - npm i --no-optional
+  - npm dedupe
+  - npm up
+  - npm install -g vsce
+
+install:
+  - vsce package
+script:
+  - npm run tslint-check
+  - npm run compile
+ 
+deploy:
+  provider: script
+  script: bash scripts/deploy.sh
+  on:
+    branch: master
+    
+    
+notifications:
+  slack:
+    secure: R9xqGEFOQHI+6oaiGz7+4zOErZydinpg+7tQd0xaCy8qRswcVtPT+yX6RAgsEGS+RXaOoVz9N534XJIdLXyW/nN8vD898Dwq4nf+lUMiRuuPrvCLk2rh50FFDRi6aoeCv1qxeNswf2ahNnFILV4FE8t2r/+P2vYeB/pJ8DChFTlz3+mjXuawH9cW+hLR6DOC7307dLHGq6SuhIvfyuysu6ZU9tyKVRWW/BsQgmz+PtlfA1HGAVzg0Yc8KhGGuWdSZydOcSisUWX2f8+BL1HGPXbzlMqJinb7z7k8HJVjddH88Tfa2Jphs/rxoKr+enlqqeCNdCIlRQ8p093bkw9B2Rmo2/xYfc2w0JnzEK5q8EibsDapn2V7hcNCd2hO1MuXTus4L43ZBxoJZoQfiyYPIYRTgo4mCT4B4AKzOuvaNZ/sXYN6I7UTwY1iXzUW3ntdn49tWJmFdUuDNwj+im+X89xdRqUWVaJD9cfgG9070MIle2CFFMGL0OXLwJRnoj3ySOLuJVThL68qVoX5E4NZn4HDdMKtmf7h8P36BUG2zmuq6n48NEiLlWgLd8HWXZEIkVnBytnnQ/+5Bg5ZZsHCEpIjcPGPuUXa5WpJlZdcqDvaQJ7NRjckDYhGqHz7AqLxMWnwcOAPWrWOYnKymh38ncGgznfjR3JSy8ZBXMU6xDw=
+  email:
+    on_success: never
+    on_failure: always
+  
+env:
+  secure: RoVxN0hSdHzA5TEA/zW5gJcAXP7qPjLSOjWTeu+m2Ooo3XgxiHSsnld7pTMU/fDYsBjAlakiv1cLU505iBIp8I7aBb7oW2rKs/YlXHeSlYUpYpwWj7/ploiY2Zg2L+s1Ojfg3X/tAaR0jSRYsffPSlZJmUL+Wom+R5pDx64nCh2hJ2egu04Co+3QSQySWrcFbUrT7phJPVW5OHYQDc+68i9QS9ptPzuKgGu1CxsYphMPsiA0EPzTUu88hPPov7UvvE7NmDnq94ObgQbkVrpMrnQFuid0EGHAeN05/RpBhQHQ7s6/eZTPIj7EAISXDMzu0X6XsbYKNLwWyjKxdpUYyl7lUFqUQYlmCk05mgH1392LqJdpYkm6NFscdU4LHiHUzpOaOBNzpewl18eQbXq/iJei6AiEw7MxwhbCh6Kg6EzhPRpBX2Pv53EBHhcSvzgkl66lau/a7HFSnQ6G4DNl6A8akD2CV9+r2r2uAj80ZBfSPIa5lTmWoJvuOw33pW2YwJn5GMyoMXydewjPCMHLIx+PNd57M1LToVdOlbrKGL1u9Xrb0FHV2DKLYslW21Dr0LCoP+NwcRcnM2R/lUKXIh5MSKLnk31jMgXrgezr+1eaOBZwo+X0gfj5YNWSA71sUXrg9AbCIP74zyUyowbkm3b1HwVFu8JtcP/ON8xqC6A=

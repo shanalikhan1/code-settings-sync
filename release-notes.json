@@ -1,0 +1,52 @@
+{
+  "changes": [
+    {
+      "details": "Add content security policy for webviews",
+      "type": "NEW",
+      "color": "success",
+      "author": "ParkourKarthik",
+      "pullRequest": "1020"
+    },
+    {
+      "details": "Improve UX for the Force Upload",
+      "type": "NEW",
+      "color": "success",
+      "author": "karl-lunarg",
+      "pullRequest": "1042"
+    },
+    {
+      "details": "Extension always asks to enable Force Upload",
+      "type": "FIX",
+      "color": "danger",
+      "author": "karl-lunarg",
+      "pullRequest": "1026"
+    },
+    {
+      "details": "Languages, Icon and Wiki Improved",
+      "type": "NEW",
+      "color": "success"
+    }, 
+    {
+      "details": "Github Gist Name Consistency across extension",
+      "type": "FIX",
+      "color": "danger"
+    }, 
+    {
+      "details": "Snippets Sync. Fixed",
+      "type": "FIX",
+      "color": "danger"
+    },
+    {
+      "details": "Share Settings Dialog Fixed",
+      "type": "FIX",
+      "color": "danger"
+    },
+    {
+      "details": "Github Sync Improved",
+      "type": "FIX",
+      "color": "danger"
+    }
+    
+  ],
+  "currentVersion": "v3.4.3"
+}

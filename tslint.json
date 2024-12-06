@@ -1,0 +1,29 @@
+{
+  "extends": [
+    "tslint:recommended",
+    "tslint-plugin-prettier"
+  ],
+  "rules": {
+    "prefer-for-of": false,
+    "prettier": [
+      true,
+      {
+        "singleQuote": false
+      }
+    ],
+    "max-classes-per-file": false,
+    "object-literal-sort-keys": false,
+    "trailing-comma": false,
+    "arrow-parens": false,
+    "no-console": false,
+    "object-literal-key-quotes": false,
+    "max-line-length": {
+      "options": {
+        "limit": 260
+      }
+    }
+  },
+  "linterOptions": {
+    "exclude": []
+  }
+}

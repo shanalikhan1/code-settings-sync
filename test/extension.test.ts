@@ -1,0 +1,3 @@
+describe("PragmaUtil", () => {
+  require("./pragmaUtil");
+});
