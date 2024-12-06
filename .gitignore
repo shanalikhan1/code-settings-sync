@@ -1,7 +1,0 @@
-out
-node_modules
-package-lock.json
-*.vsix
-*.lock
-*.log
-.history
