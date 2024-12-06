@@ -1,3 +1,0 @@
-npm install
-vsce package
-code --install-extension code-settings-sync-3.2.5.vsix

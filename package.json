@@ -7,16 +7,23 @@
   "publisher": "Shan",
   "author": {
     "name": "Shan Khan",
-    "url": "http://shanalikhan.github.io",
+    "url": "https://shanalikhan.github.io",
     "email": "shanalikhan@hotmail.com"
   },
+  "contributors": [
+    {
+      "name": "Ali Arshad",
+      "url": "https://aliinnov8s.github.io",
+      "email": "aliarshad2068@outlook.com"
+    }
+  ],
   "homepage": "https://shanalikhan.github.io",
   "galleryBanner": {
     "color": "#3B4859",
     "theme": "dark"
   },
   "engines": {
-    "vscode": "^1.35.1"
+    "vscode": "^1.95.0"
   },
   "badges": [
     {
@@ -59,11 +66,11 @@
     "workspace-sync",
     "multi-root ready"
   ],
-  "extensionKind": "ui",
-  "activationEvents": [
-    "*"
+  "extensionKind": [
+    "ui"
   ],
-  "main": "./out/extension.js",
+  "activationEvents": [],
+  "main": "./dist/extension.js",
   "contributes": {
     "commands": [
       {
@@ -144,48 +151,28 @@
     }
   },
   "scripts": {
-    "vscode:prepublish": "npm run tslint-check && webpack --config configs/webpack.production.config.js",
-    "compile": "webpack --config configs/webpack.development.config.js",
-    "watch": "webpack --config configs/webpack.development.config.js --watch",
-    "postinstall": "node ./node_modules/vscode/bin/install",
-    "tslint-check": "tslint -c ./tslint.json ./src/**/*.ts ./src/*.ts",
-    "format": "prettier --write './src/**/*.ts'",
-    "test": "npm run tslint-check && tsc -p ./ && mocha --recursive \"./out/test/**/*.js\""
+    "vscode:prepublish": "npm run package",
+    "compile": "webpack",
+    "watch": "webpack --watch",
+    "package": "webpack --mode production --devtool hidden-source-map",
+    "compile-tests": "tsc -p . --outDir out",
+    "watch-tests": "tsc -p . -w --outDir out",
+    "pretest": "npm run compile-tests && npm run compile && npm run lint",
+    "lint": "eslint src",
+    "test": "vscode-test"
   },
   "devDependencies": {
-    "@types/chai": "4.2.1",
-    "@types/express": "^4.16.1",
-    "@types/lodash": "^4.14.123",
-    "@types/node-fetch": "^2.3.3",
-    "@types/fs-extra": "^8.0.0",
-    "@types/mocha": "^5.2.6",
-    "@types/node": "^12.0.9",
-    "@types/recursive-readdir": "^2.2.0",
-    "chai": "^4.2.0",
-    "clean-webpack-plugin": "^3.0.0",
-    "mocha": "^6.0.2",
-    "prettier": "^1.16.4",
-    "ts-loader": "^5.3.3",
-    "tslint": "^5.15.0",
-    "tslint-plugin-prettier": "^2.0.1",
-    "typescript": "^3.4.1",
-    "vscode": "^1.1.33",
-    "webpack": "^4.29.6",
-    "webpack-cli": "^3.3.0",
-    "webpack-merge": "^4.2.1"
-  },
-  "dependencies": {
-    "@octokit/rest": "^16.23.2",
-    "adm-zip": "^0.4.13",
-    "const": "^1.0.0",
-    "express": "^4.16.4",
-    "fs-extra": "^8.0.1",
-    "https-proxy-agent": "^2.2.1",
-    "lockfile": "^1.0.4",
-    "lodash": "^4.17.15",
-    "node-fetch": "^2.5.0",
-    "recursive-readdir": "^2.2.2",
-    "temp": "^0.9.0",
-    "vscode-chokidar": "^2.1.6"
+    "@types/vscode": "^1.95.0",
+    "@types/mocha": "^10.0.9",
+    "@types/node": "20.x",
+    "@typescript-eslint/eslint-plugin": "^8.10.0",
+    "@typescript-eslint/parser": "^8.7.0",
+    "eslint": "^9.13.0",
+    "typescript": "^5.6.3",
+    "ts-loader": "^9.5.1",
+    "webpack": "^5.95.0",
+    "webpack-cli": "^5.1.4",
+    "@vscode/test-cli": "^0.0.10",
+    "@vscode/test-electron": "^2.4.1"
   }
 }
