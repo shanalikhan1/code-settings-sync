@@ -21,10 +21,10 @@ export class GitHubOAuthService {
       : new URL("https://github.com");
 
     this.server = this.app.listen(this.port);
-    this.app.get("/callback", async (req, res) => {
+    this.app.get("/callback", async (req: any, res: any) => {
       try {
         const params = new URLSearchParams(
-          await (await this.getToken(req.param("code"), host)).text()
+          await (await this.getToken(req.params("code"), host)).text()
         );
 
         res.send(`
@@ -62,13 +62,13 @@ export class GitHubOAuthService {
 
         const user = await this.getUser(token, host);
 
-        const gists: any[] = await this.getGists(token, user, host);
+        const gists: any = await this.getGists(token, user, host);
 
-        const gistViewList: any[] = gists.map(m => {
+        const gistViewList: any[] = gists.map((m) => {
           return {
             id: m.id,
             description: m.description,
-            updated_at: m.updated_at
+            updated_at: m.updated_at,
           };
         });
 
@@ -88,10 +88,10 @@ export class GitHubOAuthService {
 
     const promise = fetch(`https://${host.hostname}/login/oauth/access_token`, {
       method: "POST",
-      body: params
+      body: params,
     });
 
-    promise.catch(err => {
+    promise.catch((err) => {
       Commons.LogException(err, "Sync: Invalid GitHub Enterprise URL.", true);
     });
 
@@ -101,10 +101,10 @@ export class GitHubOAuthService {
   public async getGists(token: string, user: string, host: URL) {
     const promise = fetch(`https://api.${host.hostname}/users/${user}/gists`, {
       method: "GET",
-      headers: { Authorization: `token ${token}` }
+      headers: { Authorization: `token ${token}` },
     });
 
-    promise.catch(err => {
+    promise.catch((err) => {
       Commons.LogException(err, "Sync: Invalid GitHub Enterprise URL.", true);
     });
 
@@ -122,15 +122,15 @@ export class GitHubOAuthService {
   public async getUser(token: string, host: URL) {
     const promise = fetch(`https://api.${host.hostname}/user`, {
       method: "GET",
-      headers: { Authorization: `token ${token}` }
+      headers: { Authorization: `token ${token}` },
     });
 
-    promise.catch(err => {
+    promise.catch((err) => {
       Commons.LogException(err, "Sync: Invalid GitHub Enterprise URL.", true);
     });
 
     const res = await promise;
-    const json = await res.json();
-    return json.login;
+    const json: any = await res.json();
+    return json?.login;
   }
 }
